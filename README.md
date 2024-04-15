@@ -5,6 +5,12 @@ This is a simple containerized web application that can be used to quickly serve
 
 I mainly use this to run godot games exported to html.
 
+You can find the docker image on dockerhub [here](https://hub.docker.com/repository/docker/epidemicz/staticwebapp/general)
+
+```
+docker pull epidemicz/staticwebapp:latest
+```
+
 ## Container Variables
  - SERVER_PORT: Default: 8085. The port web server will be operating on.
  - SERVE_DIRECTORY: Default: Current working directory. The path on the host machine to serve. 
@@ -26,13 +32,13 @@ docker run --rm -ti -p 8088:8088 -e SERVER_PORT=8088 -v c:\dump:/app/wwwroot epi
 ```
 
 ### Dotnet run
-To serve c:\dump:
+To serve `c:\dump`:
 ```
 dotnet run path=c:\dump
 ```
 
 ### As a stand-alone binary
-To serve c:\dump:
+To serve `c:\dump`:
 ```
 StaticWebApp.exe path=c:\dump
 ```

@@ -4,8 +4,8 @@ services:
   app:
     container_name: static-web-app
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: ../
+      dockerfile: docker/Dockerfile
     environment:
       - SERVER_PORT=${SERVER_PORT}
       - DOTNET_RUNNING_IN_CONTAINER=true
