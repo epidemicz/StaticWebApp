@@ -42,3 +42,9 @@ To serve `c:\dump`:
 ```
 StaticWebApp.exe path=c:\dump
 ```
+
+## Building the container
+From the root directory
+```
+docker build -f docker/Dockerfile -t epidemicz/staticwebapp:latest .
+```

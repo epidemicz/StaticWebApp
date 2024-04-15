@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0-jammy as sdk
 RUN mkdir /app
 WORKDIR /app
-COPY ../src .
+COPY /src .
 RUN dotnet dev-certs https --trust
 ENTRYPOINT bash
 RUN dotnet build -c Release -o build
