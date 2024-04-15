@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: static-web-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - SERVER_PORT=${SERVER_PORT}
+      - DOTNET_RUNNING_IN_CONTAINER=true
+    ports:
+      - "${SERVER_PORT}:${SERVER_PORT}"
+    volumes:
+      - ${SERVE_DIRECTORY}:/app/wwwroot
+    entrypoint: dotnet StaticWebApp.dll --urls "https://*:${SERVER_PORT}"
