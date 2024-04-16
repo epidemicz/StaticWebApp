@@ -13,6 +13,7 @@
       "commandName": "Project",
       "launchBrowser": true,
       "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:8085;",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "ASPNETCORE_URLS": "https://+:8085"
