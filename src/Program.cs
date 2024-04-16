@@ -9,8 +9,6 @@ app.ConfigureFileServing(args, builder.Configuration);
 
 app.MapGet("/hello", () => $"Hello from ${Environment.GetEnvironmentVariable("HOSTNAME")}");
 
-Console.WriteLine($"Serving files from {Options.ServeDirectory} at https://localhost:{Options.ServerPort}");
-
 if (!RunningInContainer)
 {
     if (OperatingSystem.IsWindows())
@@ -23,4 +21,7 @@ if (!RunningInContainer)
     }
 }
 
+Console.WriteLine($"Serving files from {Options.ServeDirectory} at https://{Options.Hostname}:{Options.ServerPort}");
+
+// listening on all interfaces here for docker
 app.Run("https://*:" + Options.ServerPort);

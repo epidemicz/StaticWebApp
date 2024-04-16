@@ -17,4 +17,4 @@ COPY --from=sdk /root/.dotnet/corefx/cryptography/x509stores/my /root/.dotnet/co
 COPY --from=sdk /app/build /app
 WORKDIR /app
 EXPOSE $SERVER_PORT
-ENTRYPOINT dotnet StaticWebApp.dll --urls "https://*:$SERVER_PORT"
+ENTRYPOINT dotnet StaticWebApp.dll

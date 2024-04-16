@@ -13,4 +13,4 @@ services:
       - "${SERVER_PORT}:${SERVER_PORT}"
     volumes:
       - ${SERVE_DIRECTORY}:/app/wwwroot
-    entrypoint: dotnet StaticWebApp.dll --urls "https://*:${SERVER_PORT}"
+    entrypoint: dotnet StaticWebApp.dll

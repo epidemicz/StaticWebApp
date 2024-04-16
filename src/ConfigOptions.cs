@@ -6,5 +6,6 @@ public class ConfigOptions
     public string? ServeDirectory { get; set; } = null;
     public bool UseDirectoryBrowser { get; set; } = true;
     public bool UseRequiredGodotHeaders { get; set; } = true;
+    public string Hostname { get; set; } = "localhost";
 
 }

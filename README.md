@@ -22,7 +22,7 @@ docker pull epidemicz/staticwebapp:latest
 See the `.env.` file to customize the environment variables
 
 ```
-docker compose up
+docker compose --project-directory docker up
 ```
 
 ### Docker run temporary container
