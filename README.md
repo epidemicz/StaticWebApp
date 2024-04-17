@@ -39,10 +39,7 @@ docker compose --project-directory docker up
 
 ### Running as a stand-alone binary
 A few command line arguments are available:
-- `path` example: ... `path=absolute_path_to_serve`
-- `server_port` example:  
-
-|Variable|Example|
+|Argument|Example Usage|
 |--|--|
 |PATH|PATH=c:\dump (this needs to be an absolute path)
 |SERVER_PORT|SERVER_PORT=8085|
