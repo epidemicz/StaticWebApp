@@ -1,16 +1,16 @@
 # Static Web App for Godot (games)
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S3NKK32)
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S3NKK32)  
 
-
+![](/img/icon-sm.png)
 ## Overview
 
-<img src="./img/icon-sm.png" alt="Static Web App for Godot (games)" style="float:left; margin: 0px 10px 10px 0px;" />
-This is a simple web server pre-configured to host godot games exported to html. 
-There are some pre-configured headers that are required for 
-godot games, but this can also be used to quickly serve any static files from a directory.  
+This is a simple web server pre-configured to host godot games exported to html.  
 
-Can be ran as a docker image or as a stand-alone binary.
+There are some pre-configured headers that are required for 
+godot games, but this can also be used to quickly serve any static files from a directory.    
+
+Can be ran as a docker image or as a stand-alone binary.  
 
 ## Usage
 Below are some of the ways you can get started.
