@@ -20,6 +20,7 @@ RUN dotnet dev-certs https --trust
 FROM mcr.microsoft.com/dotnet/aspnet:8.0-jammy
 
 # environment variables
+ENV APP_NAME=swag.dll
 ENV SERVER_PORT=8085
 ENV DOTNET_RUNNING_IN_CONTAINER=true
 
@@ -36,4 +37,4 @@ EXPOSE $SERVER_PORT
 
 # set work directory to /app and start the application
 WORKDIR /app
-ENTRYPOINT dotnet StaticWebApp.dll
+ENTRYPOINT dotnet $APP_NAME

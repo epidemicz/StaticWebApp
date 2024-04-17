@@ -36,9 +36,6 @@ public static class AppBuilderExtensions
             false => port ??= Options.ServerPort
         };
 
-        // If a port was passed in, use that, otherwise, use the configured port
-        Options.ServerPort = port ??= Options.ServerPort;
-
         if (!Directory.Exists(Options.ServeDirectory))
         {
             Console.WriteLine($"Directory does not exist: {Options.ServeDirectory}");

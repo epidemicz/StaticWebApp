@@ -1,8 +1,8 @@
 version: '3.8'
-
+  
 services:
   app:
-    container_name: static-web-app
+    container_name: swag
     build:
       context: ../
       dockerfile: docker/Dockerfile
@@ -13,4 +13,3 @@ services:
       - "${SERVER_PORT}:${SERVER_PORT}"
     volumes:
       - ${SERVE_DIRECTORY}:/app/wwwroot
-    entrypoint: dotnet StaticWebApp.dll

@@ -1,50 +1,72 @@
-# Static Web App
+# Static Web App for Godot (games)
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/S6S3NKK32)
+
 
 ## Overview
-This is a simple containerized web application that can be used to quickly serve static files from a directory (with directory browsing enabled).
 
-I mainly use this to run godot games exported to html.
+<img src="./img/icon-sm.png" alt="Static Web App for Godot (games)" style="float:left; margin: 0px 10px 10px 0px;" />
+This is a simple web server pre-configured to host godot games exported to html. 
+There are some pre-configured headers that are required for 
+godot games, but this can also be used to quickly serve any static files from a directory.  
 
-You can find the docker image on dockerhub [here](https://hub.docker.com/repository/docker/epidemicz/staticwebapp/general)
-
-```
-docker pull epidemicz/staticwebapp:latest
-```
-
-## Container Variables
- - SERVER_PORT: Default: 8085. The port web server will be operating on.
- - SERVE_DIRECTORY: Default: Current working directory. The path on the host machine to serve. 
-   - If not using docker compose, map the directory on your host machine to `/app/wwwroot`.
+Can be ran as a docker image or as a stand-alone binary.
 
 ## Usage
+Below are some of the ways you can get started.
 
-### Docker compose
-See the `.env.` file to customize the environment variables
+### Docker
+- `8085` is the default container port.  
+- `/app/wwwroot` is the volume that will be served.  
 
+#### Run under a temporary docker container
+Serve the contents of the current directory on port 8085:
+```
+docker run --rm -ti -p 8085:8085 -v .:/app/wwwroot epidemicz/swag
+```
+
+#### Pull the docker image from docker hub
+
+```
+docker pull epidemicz/swag:latest
+```
+
+#### Using docker compose
+If you clone the repository, you can also use the `docker-compose` script to start a server.  See the `docker/.env` file to customize the `SERVER_PORT` and `SERVE_DIRECTORY`.
 ```
 docker compose --project-directory docker up
 ```
 
-### Docker run temporary container
-To serve the directory `c:\dump` on port 8088:
-```
-docker run --rm -ti -p 8088:8088 -e SERVER_PORT=8088 -v c:\dump:/app/wwwroot epidemicz/staticwebapp
-```
+### Running as a stand-alone binary
+A few command line arguments are available:
+- `path` example: ... `path=absolute_path_to_serve`
+- `server_port` example:  
 
-### Dotnet run
-To serve `c:\dump`:
+|Variable|Example|
+|--|--|
+|PATH|PATH=c:\dump (this needs to be an absolute path)
+|SERVER_PORT|SERVER_PORT=8085|
+
+If you clone the repository, you can run the app directly with `dotnet run`.  
+This command will serve the directory `c:\dump` on port 9999:
+
 ```
-dotnet run path=c:\dump
+dotnet run path=c:\dump port=9999
 ```
 
 ### As a stand-alone binary
-To serve `c:\dump`:
+Same as the above, just pass in the args.
 ```
-StaticWebApp.exe path=c:\dump
+swag.exe path=c:\dump
 ```
 
 ## Building the container
-From the root directory
+Building the container from the root directory:
 ```
-docker build -f docker/Dockerfile -t epidemicz/staticwebapp:latest .
+docker build -f docker/Dockerfile -t epidemicz/swag:latest .
+```
+## Updating the container
+Updating the container on docker hub:
+```
+docker push epidemicz/swag:latest
 ```

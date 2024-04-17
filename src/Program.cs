@@ -21,7 +21,7 @@ if (!RunningInContainer)
     }
 }
 
-Console.WriteLine($"Serving files from {Options.ServeDirectory} at https://{Options.Hostname}:{Options.ServerPort}");
+app.Logger.LogInformation("Serving files from {serveDirectory} at https://{hostname}:{serverPort}", Options.ServeDirectory, Options.Hostname, Options.ServerPort);
 
 // listening on all interfaces here for docker
 app.Run("https://*:" + Options.ServerPort);
