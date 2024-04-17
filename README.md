@@ -1,4 +1,5 @@
 # Static Web App
+![](/img/icon.png)
 
 ## Overview
 This is a simple containerized web application that can be used to quickly serve static files from a directory (with directory browsing enabled).
