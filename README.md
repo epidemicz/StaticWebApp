@@ -20,7 +20,7 @@ docker pull epidemicz/staticwebapp:latest
 ## Usage
 
 ### Docker compose
-See the `.env.` file to customize the environment variables
+See the `.env` file to customize the environment variables
 
 ```
 docker compose --project-directory docker up
