@@ -9,9 +9,7 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
@@ -19,6 +17,7 @@ jobs:
 
   
   push_to_registry:
+    needs: build    
     name: Push Docker Image to Hub
     runs-on: ubuntu-latest
     steps:
