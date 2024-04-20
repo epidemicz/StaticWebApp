@@ -13,7 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file docker/Dockerfile --tag epidemicz/swag:latest
+      run: docker build . --file docker/Dockerfile epidemicz/swag:latest
 
   
   push_to_registry:
@@ -28,4 +28,9 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Push to registry
-        run: docker push epidemicz/swag:latest
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: docker/Dockerfile
+          push: true
+          tags: epidemicz/swag:latest
